@@ -5,25 +5,23 @@
  */
 
 #include <stdio.h>
-#include <stdbool.h>
 #include <conio.h>
 #include "fujinet-fuji.h"
 
 void main(void)
 {
-	bool success;
-
 	clrscr();
 
-	success = fuji_reset();
-	if (success)
+	if (!fuji_reset())
 	{
-		printf("Reset succeeded\n");
-	}
-	else
-	{
-		printf("Reset failed\n");
+		printf("Resetting FujiNet failed.\n");
+		while (1)
+			;
 	}
 
-	while (1) {}
-};
+	printf("FujiNet reset succeeded.\n");
+	printf("Rebooting into CONFIG...\n");
+	__asm__("lda #$0");
+	__asm__("sta $3f4");	/* reset power-up byte */
+	__asm__("jmp ($fffc)"); /* reset */
+}
