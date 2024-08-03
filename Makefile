@@ -1,6 +1,6 @@
 # Makefile for fujinet-reset
 
-TARGETS = apple2enh
+TARGETS = apple2enh apple2
 PROGRAM := fn.reset
 
 export FUJINET_BUILD_TOOLS_DIR := ../fujinet-build-tools
