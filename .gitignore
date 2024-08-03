@@ -1,6 +1,6 @@
 .DS_Store
-fn.reset.po
-*.system
+build/
+dist/
 obj/
 \#*
 *~
