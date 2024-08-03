@@ -2,3 +2,6 @@
 fn.reset.po
 *.system
 obj/
+\#*
+*~
+
